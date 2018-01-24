@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorPrimary">#ff4474</color>
+    <color name="colorPrimaryDark">#003b8e</color>
+    <color name="colorAccent">#dfadbe</color>
+    <color name="dark_blue_text">#003b5e</color>
+    <color name="dark_blue_background">#004974</color>
+    <color name="light_blue_text">#00f2ff</color>
+    <color name="light_blue_hint">#63c5ca</color>
+    <color name="cyan_button">#00ffdd</color>
+    <color name="light_blue_input">#49d0d7</color>
 </resources>
