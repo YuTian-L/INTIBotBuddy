@@ -23,14 +23,14 @@ import java.net.URLConnection;
 import java.net.URLEncoder;
 
 /**
- * Created by TIAN☺ on 26/01/2018.
+ * Created by TIAN☺ on 28/02/2018.
  */
 
-public class LoginActivity extends AsyncTask {
+public class SettingsBgActivity extends AsyncTask {
 
     private Context context;
 
-    public LoginActivity(Context context) {
+    public SettingsBgActivity(Context context) {
         this.context = context;
     }
 
@@ -43,35 +43,48 @@ public class LoginActivity extends AsyncTask {
     protected String doInBackground(Object[] objects) {
         try {
             String username = (String) objects[0];
-            String password = (String) objects[1];
-            String link = "http://pkunite2.000webhostapp.com/login.php";
+            String currentPassword = (String) objects[1];
+            String newPassword = (String) objects[2];
+            String confirmNewPassword = (String) objects[3];
+            String link = "http://pkunite2.000webhostapp.com/changepassword.php";
 
-            String data = URLEncoder.encode("username", "UTF-8") + "=" + URLEncoder.encode(username, "UTF-8");
-            data += "&" + URLEncoder.encode("password", "UTF-8") + "=" + URLEncoder.encode(password, "UTF-8");
+            if (!currentPassword.equals("") && !newPassword.equals("") && !confirmNewPassword.equals("")) {
+                if (newPassword.equals(confirmNewPassword)) {
+                    String data = URLEncoder.encode("username", "UTF-8") + "=" + URLEncoder.encode(username, "UTF-8");
+                    data += "&" + URLEncoder.encode("currentPassword", "UTF-8") + "=" + URLEncoder.encode(currentPassword, "UTF-8");
+                    data += "&" + URLEncoder.encode("newPassword", "UTF-8") + "=" + URLEncoder.encode(newPassword, "UTF-8");
 
-            URL url = new URL(link);
-            URLConnection conn = url.openConnection();
+                    URL url = new URL(link);
+                    URLConnection conn = url.openConnection();
 
-            conn.setDoOutput(true);
-            OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream());
+                    conn.setDoOutput(true);
+                    OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream());
 
-            wr.write(data);
-            wr.flush();
+                    wr.write(data);
+                    wr.flush();
 
-            BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
 
-            StringBuilder sb = new StringBuilder();
-            String line;
+                    StringBuilder sb = new StringBuilder();
+                    String line;
 
-            // Read Server Response
-            while ((line = reader.readLine()) != null) {
-                sb.append(line);
-                break;
+                    // Read Server Response
+                    while ((line = reader.readLine()) != null) {
+                        sb.append(line);
+                        break;
+                    }
+
+                    return sb.toString();
+                } else {
+                    return "{\"status\":\"Please check new password fields\",\"message\":\"New passwords do not match\"}";
+                }
+            }
+            else {
+                return "{\"status\":\"Invalid\",\"message\":\"All fields are required\"}";
             }
 
-            return sb.toString();
         } catch (Exception e) {
-            Log.e("LoginActivityError", e.getLocalizedMessage());
+            Log.e("SettingsBgActivityError", e.getLocalizedMessage());
             return  new String("Exception: " + e.getMessage());
         }
     }
@@ -82,10 +95,11 @@ public class LoginActivity extends AsyncTask {
         title = jsonObject.getString("status");
         message = jsonObject.getString("message");
 
-        if (title.equals("Welcome")) {
+        if (title.equals("Password has been changed successfully")) {
             Toast.makeText(context, title + "\n" + message, Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(context, Main2Activity.class);
-            context.startActivity(intent);
+            // TODO clear edit text fields or refresh the page
+            /*Intent intent = new Intent(context, SettingsActivity.class);
+            context.startActivity(intent);*/
         }
 
         else {
@@ -115,7 +129,6 @@ public class LoginActivity extends AsyncTask {
     protected void onPostExecute(Object o) {
         super.onPostExecute(o);
         try {
-            // TODO dismiss keyboard
             parseJSON((String)o);
         } catch (JSONException e) {
             e.printStackTrace();
