@@ -19,63 +19,78 @@
             </intent-filter>
         </activity>
         <activity android:name=".Main2Activity" />
-        <activity android:name=".SafetyActivity"
-                  android:parentActivityName=".Main2Activity">
-        <!-- The meta-data tag is required if it supports API level 15 and lower -->
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Main2Activity" />
-        </activity>
-        <activity android:name=".AcademicActivity"
-                  android:parentActivityName=".Main2Activity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Main2Activity" />
-        </activity>
-        <activity android:name=".TransportationActivity"
-                  android:parentActivityName=".Main2Activity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Main2Activity" />
-        </activity>
-        <activity android:name=".FacilitiesActivity"
-                  android:parentActivityName=".Main2Activity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Main2Activity" />
-        </activity>
-        <activity android:name=".ContactsActivity"
-                  android:parentActivityName=".Main2Activity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Main2Activity" />
-        </activity>
-        <activity android:name=".ActivitiesActivity"
-                  android:parentActivityName=".Main2Activity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Main2Activity" />
-        </activity>
-        <activity android:name=".HelpdesksActivity"
-                  android:parentActivityName=".Main2Activity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Main2Activity" />
-        </activity>
-        <activity android:name=".WifiActivity"
-                  android:parentActivityName=".Main2Activity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Main2Activity" />
-        </activity>
-        <activity android:name=".ExtraInfoActivity"
-                  android:parentActivityName=".Main2Activity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Main2Activity" />
-        </activity>
-        <activity android:name=".SettingsActivity">
+        <activity
+            android:name=".SafetyActivity"
+            android:parentActivityName=".Main2Activity">
 
+            <!-- The meta-data tag is required if it supports API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Main2Activity" />
+        </activity>
+        <activity
+            android:name=".AcademicActivity"
+            android:parentActivityName=".Main2Activity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Main2Activity" />
+        </activity>
+        <activity
+            android:name=".TransportationActivity"
+            android:parentActivityName=".Main2Activity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Main2Activity" />
+        </activity>
+        <activity
+            android:name=".FacilitiesActivity"
+            android:parentActivityName=".Main2Activity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Main2Activity" />
+        </activity>
+        <activity
+            android:name=".ContactsActivity"
+            android:parentActivityName=".Main2Activity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Main2Activity" />
+        </activity>
+        <activity
+            android:name=".ActivitiesActivity"
+            android:parentActivityName=".Main2Activity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Main2Activity" />
+        </activity>
+        <activity
+            android:name=".HelpdesksActivity"
+            android:parentActivityName=".Main2Activity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Main2Activity" />
+        </activity>
+        <activity
+            android:name=".WifiActivity"
+            android:parentActivityName=".Main2Activity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Main2Activity" />
+        </activity>
+        <activity
+            android:name=".ExtraInfoActivity"
+            android:parentActivityName=".Main2Activity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Main2Activity" />
+        </activity>
+        <activity android:name=".SettingsActivity"></activity>
+        <activity
+            android:name=".InjuredActivity"
+            android:parentActivityName=".SafetyActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".SafetyActivity" />
         </activity>
     </application>
 
