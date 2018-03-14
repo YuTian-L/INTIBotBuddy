@@ -21,4 +21,52 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/sportsButton"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="@color/cyan_button"
+        android:onClick="sports"
+        android:text="@string/option_sports"
+        android:textAllCaps="false"
+        android:textColor="@android:color/black"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+    <Button
+        android:id="@+id/clubsSocietiesButton"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="@color/cyan_button"
+        android:onClick="clubsSocieties"
+        android:text="@string/option_clubsSocieties"
+        android:textAllCaps="false"
+        android:textColor="@android:color/black"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sportsButton" />
+
+    <Button
+        android:id="@+id/eventsButton"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="@color/cyan_button"
+        android:onClick="events"
+        android:text="@string/option_events"
+        android:textAllCaps="false"
+        android:textColor="@android:color/black"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/clubsSocietiesButton" />
 </android.support.constraint.ConstraintLayout>

@@ -1,0 +1,93 @@
+package com.example.intibot_buddy;
+
+import android.os.AsyncTask;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.util.Log;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.URL;
+import java.net.URLConnection;
+
+public class InjuredActivity extends AppCompatActivity {
+
+    ListView listView;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_injured);
+
+        String category = getString(R.string.button_safetyHealthEmergency);
+        setTitle(category.toUpperCase());
+
+        listView = findViewById(R.id.injuredListView);
+        getJSON();
+    }
+
+    private void getJSON() {
+        class GetJSON extends AsyncTask<Void, Void, Object> {
+
+            @Override
+            protected void onPreExecute() {
+                super.onPreExecute();
+            }
+
+            @Override
+            protected Object doInBackground(Void... voids) {
+                try {
+                    String link = "http://pkunite2.000webhostapp.com/getID11.php";
+
+                    URL url = new URL(link);
+                    URLConnection conn = url.openConnection();
+
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+
+                    StringBuilder sb = new StringBuilder();
+                    String line;
+
+                    // Read Server Response
+                    while ((line = reader.readLine()) != null) {
+                        sb.append(line);
+                        break;
+                    }
+
+                    return sb.toString();
+
+                } catch (Exception e) {
+                    Log.e("InjuredBgActivityError", e.getLocalizedMessage());
+                    return new String("Exception: " + e.getMessage());
+                }
+            }
+
+            @Override
+            protected void onPostExecute(Object o) {
+                super.onPostExecute(o);
+                try {
+                    loadIntoListView((String)o);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        GetJSON getJSON = new GetJSON();
+        getJSON.execute();
+    }
+
+    private void loadIntoListView(String line) throws JSONException {
+        String[] injured = new String[10];
+        for (int i=0; i<10; i++){
+            JSONObject jsonObject = new JSONObject(line);
+            int j = i+1;
+            injured[i] = jsonObject.getString(Integer.toString(j));
+        }
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, injured);
+        listView.setAdapter(arrayAdapter);
+    }
+}

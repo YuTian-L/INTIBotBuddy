@@ -21,4 +21,68 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/generalFaciButton"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="@color/cyan_button"
+        android:onClick="general"
+        android:text="@string/option_general"
+        android:textAllCaps="false"
+        android:textColor="@android:color/black"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+    <Button
+        android:id="@+id/academicBlockButton"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="@color/cyan_button"
+        android:onClick="academicBlock"
+        android:text="@string/option_academicBlock"
+        android:textAllCaps="false"
+        android:textColor="@android:color/black"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/generalFaciButton" />
+
+    <Button
+        android:id="@+id/hostelAreaButton"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="@color/cyan_button"
+        android:onClick="hostelArea"
+        android:text="@string/option_hostel"
+        android:textAllCaps="false"
+        android:textColor="@android:color/black"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/academicBlockButton" />
+
+    <Button
+        android:id="@+id/sportsRecreationalButton"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="@color/cyan_button"
+        android:onClick="sportsRecreational"
+        android:text="@string/option_sportsRecreational"
+        android:textAllCaps="false"
+        android:textColor="@android:color/black"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hostelAreaButton" />
 </android.support.constraint.ConstraintLayout>
