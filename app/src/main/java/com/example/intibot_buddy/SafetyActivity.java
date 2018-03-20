@@ -19,12 +19,12 @@ public class SafetyActivity extends AppCompatActivity {
     }
 
     public void emergency(View view){
-        Intent intent = new Intent(this, InjuredActivity.class); //TODO
+        Intent intent = new Intent(this, EmergencyActivity.class);
         startActivity(intent);
     }
 
     public void counselling(View view){
-        Intent intent = new Intent(this, InjuredActivity.class); //TODO
+        Intent intent = new Intent(this, CounsellingActivity.class);
         startActivity(intent);
     }
 }

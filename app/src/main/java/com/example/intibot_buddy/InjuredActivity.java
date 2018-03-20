@@ -1,11 +1,17 @@
 package com.example.intibot_buddy;
 
+import android.graphics.Typeface;
 import android.os.AsyncTask;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -61,7 +67,7 @@ public class InjuredActivity extends AppCompatActivity {
                     return sb.toString();
 
                 } catch (Exception e) {
-                    Log.e("InjuredBgActivityError", e.getLocalizedMessage());
+                    Log.e("InjuredActivityError", e.getLocalizedMessage());
                     return new String("Exception: " + e.getMessage());
                 }
             }
@@ -81,13 +87,24 @@ public class InjuredActivity extends AppCompatActivity {
     }
 
     private void loadIntoListView(String line) throws JSONException {
-        String[] injured = new String[10];
-        for (int i=0; i<10; i++){
-            JSONObject jsonObject = new JSONObject(line);
-            int j = i+1;
-            injured[i] = jsonObject.getString(Integer.toString(j));
+        JSONObject jsonObject = new JSONObject(line);
+        String[] injured = new String[jsonObject.length()];
+
+        for (int i=0; jsonObject.has(String.valueOf(i+1)); i++){
+            injured[i] = jsonObject.getString(String.valueOf(i+1));
         }
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, injured);
+
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, injured) {
+            @NonNull
+            @Override
+            public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+                View view = super.getView(position, convertView, parent);
+                TextView tv = view.findViewById(android.R.id.text1);
+                tv.setTextColor(getResources().getColor(R.color.light_blue_text));
+                tv.setTypeface(null, Typeface.BOLD);
+                return view;
+            }
+        };
         listView.setAdapter(arrayAdapter);
     }
 }

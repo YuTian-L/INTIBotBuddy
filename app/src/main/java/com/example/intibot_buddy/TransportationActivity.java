@@ -14,17 +14,17 @@ public class TransportationActivity extends AppCompatActivity {
     }
 
     public void byINTI(View view){
-        Intent intent = new Intent(this, InjuredActivity.class); //TODO
+        Intent intent = new Intent(this, ByIntiActivity.class);
         startActivity(intent);
     }
 
     public void nonINTI(View view){
-        Intent intent = new Intent(this, InjuredActivity.class); //TODO
+        Intent intent = new Intent(this, NonIntiActivity.class);
         startActivity(intent);
     }
 
     public void whereToWaitForBus(View view){
-        Intent intent = new Intent(this, InjuredActivity.class); //TODO
+        Intent intent = new Intent(this, WhereToWaitForBusActivity.class);
         startActivity(intent);
     }
 }

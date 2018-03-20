@@ -14,17 +14,17 @@ public class ActivitiesActivity extends AppCompatActivity {
     }
 
     public void sports(View view){
-        Intent intent = new Intent(this, InjuredActivity.class); //TODO
+        Intent intent = new Intent(this, SportsActivity.class);
         startActivity(intent);
     }
 
     public void clubsSocieties(View view){
-        Intent intent = new Intent(this, InjuredActivity.class); //TODO
+        Intent intent = new Intent(this, ClubsSocietiesActivity.class);
         startActivity(intent);
     }
 
     public void events(View view){
-        Intent intent = new Intent(this, InjuredActivity.class); //TODO
+        Intent intent = new Intent(this, EventsActivity.class);
         startActivity(intent);
     }
 }

@@ -14,12 +14,12 @@ public class WifiActivity extends AppCompatActivity {
     }
 
     public void studentWifi(View view){
-        Intent intent = new Intent(this, InjuredActivity.class); //TODO
+        Intent intent = new Intent(this, StudentWifiActivity.class);
         startActivity(intent);
     }
 
     public void hostelWifi(View view){
-        Intent intent = new Intent(this, InjuredActivity.class); //TODO
+        Intent intent = new Intent(this, HostelWifiActivity.class);
         startActivity(intent);
     }
 }

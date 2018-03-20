@@ -55,4 +55,7 @@
     <string name="option_makeEnquiry">Make an Enquiry to INTI IU</string>
     <string name="option_INTIStudentWifi">INTI-Student WiFi</string>
     <string name="option_nearbyMalls">Nearby Malls</string>
+    <string name="action_logout">Logout</string>
+    <string name="text_logout">Logout</string>
+    <string name="pass_connection">connection</string>
 </resources>

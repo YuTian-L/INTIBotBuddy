@@ -14,27 +14,27 @@ public class AcademicActivity extends AppCompatActivity {
     }
 
     public void gettingInTouch(View view){
-        Intent intent = new Intent(this, InjuredActivity.class); //TODO
+        Intent intent = new Intent(this, GetInTouchActivity.class);
         startActivity(intent);
     }
 
     public void websites(View view){
-        Intent intent = new Intent(this, InjuredActivity.class); //TODO
+        Intent intent = new Intent(this, WebsitesActivity.class);
         startActivity(intent);
     }
 
     public void socialMedia(View view){
-        Intent intent = new Intent(this, InjuredActivity.class); //TODO
+        Intent intent = new Intent(this, SocialMediaActivity.class);
         startActivity(intent);
     }
 
     public void academicWebsitesRes(View view){
-        Intent intent = new Intent(this, InjuredActivity.class); //TODO
+        Intent intent = new Intent(this, AcademicWebsitesResActivity.class);
         startActivity(intent);
     }
 
     public void intimaFb(View view){
-        Intent intent = new Intent(this, InjuredActivity.class); //TODO
+        Intent intent = new Intent(this, IntimaFbActivity.class);
         startActivity(intent);
     }
 }
