@@ -1,8 +1,12 @@
 package com.example.intibot_buddy;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
@@ -37,6 +41,25 @@ public class LoginActivity extends AsyncTask {
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
+
+        boolean connection = checkConnection();
+        SharedPreferences sharedPref = context.getSharedPreferences(context.getString(R.string.pass_connection), context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putString(context.getString(R.string.pass_connection), String.valueOf(connection));
+        editor.commit();
+    }
+
+    private boolean checkConnection() {
+        boolean connected = false;
+
+        ConnectivityManager connectivityManager = (ConnectivityManager)context.getSystemService(context.CONNECTIVITY_SERVICE);
+        if (connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState()== NetworkInfo.State.CONNECTED || connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState()==NetworkInfo.State.CONNECTED) {
+            connected = true; //connected to a network
+        }
+        else {
+            connected = false;
+        }
+        return connected;
     }
 
     @Override
@@ -86,6 +109,7 @@ public class LoginActivity extends AsyncTask {
             Toast.makeText(context, title + "\n" + message, Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(context, Main2Activity.class);
             context.startActivity(intent);
+            ((Activity) context).finish();
         }
 
         else {

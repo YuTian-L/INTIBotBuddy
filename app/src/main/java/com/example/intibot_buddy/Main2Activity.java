@@ -1,11 +1,13 @@
 package com.example.intibot_buddy;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 public class Main2Activity extends AppCompatActivity {
 
@@ -13,7 +15,10 @@ public class Main2Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
-        //setTitle("MAIN MENU");
+
+        SharedPreferences sharedPref = this.getSharedPreferences(getString(R.string.pass_username), MODE_PRIVATE);
+        String username = sharedPref.getString(getString(R.string.pass_username), "defaultValue:username");
+        setTitle("Greetings " + username);
     }
 
     public void safety(View view){
@@ -79,6 +84,19 @@ public class Main2Activity extends AppCompatActivity {
                 // If we got here, the user's action was not recognized.
                 // Invoke the superclass to handle it.
                 return super.onOptionsItemSelected(item);
+        }
+    }
+
+    private static long back_pressed;
+
+    @Override
+    public void onBackPressed() {
+        if (back_pressed + 2000 > System.currentTimeMillis()) {
+            super.onBackPressed();
+        }
+        else {
+            Toast.makeText(this, "Press back again to exit app", Toast.LENGTH_SHORT).show();
+            back_pressed = System.currentTimeMillis();
         }
     }
 }

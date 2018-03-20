@@ -1,5 +1,6 @@
 package com.example.intibot_buddy;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -98,8 +99,9 @@ public class SettingsBgActivity extends AsyncTask {
         if (title.equals("Password has been changed successfully")) {
             Toast.makeText(context, title + "\n" + message, Toast.LENGTH_SHORT).show();
             // TODO clear edit text fields or refresh the page
-            /*Intent intent = new Intent(context, SettingsActivity.class);
-            context.startActivity(intent);*/
+            ((Activity)context).finish();
+            Intent intent = new Intent(context, SettingsActivity.class);
+            context.startActivity(intent);
         }
 
         else {

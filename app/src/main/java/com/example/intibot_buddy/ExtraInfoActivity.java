@@ -14,7 +14,7 @@ public class ExtraInfoActivity extends AppCompatActivity {
     }
 
     public void nearbyMalls(View view){
-        Intent intent = new Intent(this, InjuredActivity.class); //TODO
+        Intent intent = new Intent(this, NearbyMallsActivity.class);
         startActivity(intent);
     }
 }

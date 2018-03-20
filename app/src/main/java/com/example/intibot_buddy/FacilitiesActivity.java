@@ -14,22 +14,22 @@ public class FacilitiesActivity extends AppCompatActivity {
     }
 
     public void general(View view){
-        Intent intent = new Intent(this, InjuredActivity.class); //TODO
+        Intent intent = new Intent(this, FacilitiesGeneralActivity.class);
         startActivity(intent);
     }
 
     public void academicBlock(View view){
-        Intent intent = new Intent(this, InjuredActivity.class); //TODO
+        Intent intent = new Intent(this, FacilitiesAcademicActivity.class);
         startActivity(intent);
     }
 
     public void hostelArea(View view){
-        Intent intent = new Intent(this, InjuredActivity.class); //TODO
+        Intent intent = new Intent(this, FacilitiesHostelActivity.class);
         startActivity(intent);
     }
 
     public void sportsRecreational(View view){
-        Intent intent = new Intent(this, InjuredActivity.class); //TODO
+        Intent intent = new Intent(this, SportsRecreationalActivity.class);
         startActivity(intent);
     }
 }

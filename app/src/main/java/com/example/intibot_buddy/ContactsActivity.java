@@ -14,22 +14,22 @@ public class ContactsActivity extends AppCompatActivity {
     }
 
     public void generalContacts(View view){
-        Intent intent = new Intent(this, InjuredActivity.class); //TODO
+        Intent intent = new Intent(this, ContactsGeneralActivity.class);
         startActivity(intent);
     }
 
     public void academicBlockContacts(View view){
-        Intent intent = new Intent(this, InjuredActivity.class); //TODO
+        Intent intent = new Intent(this, ContactsAcademicActivity.class);
         startActivity(intent);
     }
 
     public void hostelAreaContacts(View view){
-        Intent intent = new Intent(this, InjuredActivity.class); //TODO
+        Intent intent = new Intent(this, ContactsHostelActivity.class);
         startActivity(intent);
     }
 
     public void others(View view){
-        Intent intent = new Intent(this, InjuredActivity.class); //TODO
+        Intent intent = new Intent(this, ContactsOthersActivity.class);
         startActivity(intent);
     }
 }

@@ -14,22 +14,22 @@ public class HelpdesksActivity extends AppCompatActivity {
     }
 
     public void IThelpdesk(View view){
-        Intent intent = new Intent(this, InjuredActivity.class); //TODO
+        Intent intent = new Intent(this, ItHelpdeskActivity.class);
         startActivity(intent);
     }
 
     public void AFMhelpdesk(View view){
-        Intent intent = new Intent(this, InjuredActivity.class); //TODO
+        Intent intent = new Intent(this, AfmHelpdeskActivity.class);
         startActivity(intent);
     }
 
     public void onlineSuggestion(View view){
-        Intent intent = new Intent(this, InjuredActivity.class); //TODO
+        Intent intent = new Intent(this, OnlineSuggestionActivity.class);
         startActivity(intent);
     }
 
     public void makeEnquiry(View view){
-        Intent intent = new Intent(this, InjuredActivity.class); //TODO
+        Intent intent = new Intent(this, MakeEnquiryActivity.class);
         startActivity(intent);
     }
 }
