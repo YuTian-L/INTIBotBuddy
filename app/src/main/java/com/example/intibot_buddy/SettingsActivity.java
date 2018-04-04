@@ -6,15 +6,12 @@ import android.content.SharedPreferences;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-//import android.util.Log;
-import android.view.Gravity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 
 public class SettingsActivity extends AppCompatActivity {
 
@@ -25,7 +22,7 @@ public class SettingsActivity extends AppCompatActivity {
 
         SharedPreferences sharedPref = this.getSharedPreferences(getString(R.string.pass_username), MODE_PRIVATE);
         String username = sharedPref.getString(getString(R.string.pass_username), "defaultValue:username");
-        setTitle("INTI Bot-Buddy                    " + username);
+        setTitle("INTI Bot-Buddy        " + username);
     }
 
     public void save(View view){
@@ -57,6 +54,14 @@ public class SettingsActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialogInterface, int which) {
                         switch (which) {
                             case DialogInterface.BUTTON_POSITIVE:
+                                SharedPreferences sharedPref = getApplicationContext().getSharedPreferences(getString(R.string.save_rememberMe), MODE_PRIVATE);
+                                SharedPreferences.Editor editor = sharedPref.edit();
+                                editor.clear();
+                                editor.commit();
+                                SharedPreferences sharedPref2 = getApplicationContext().getSharedPreferences(getString(R.string.save_usernamePassword), MODE_PRIVATE);
+                                SharedPreferences.Editor editor2 = sharedPref2.edit();
+                                editor2.clear();
+                                editor2.commit();
                                 Intent intent = new Intent(SettingsActivity.this, MainActivity.class);
                                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK); //clear all previous activities
                                 startActivity(intent);
