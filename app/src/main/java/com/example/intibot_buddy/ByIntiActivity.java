@@ -1,5 +1,6 @@
 package com.example.intibot_buddy;
 
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.support.annotation.NonNull;
@@ -11,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import org.json.JSONException;
@@ -23,8 +25,6 @@ import java.net.URLConnection;
 
 public class ByIntiActivity extends AppCompatActivity {
 
-    ListView listView;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,79 +32,10 @@ public class ByIntiActivity extends AppCompatActivity {
 
         String category = getString(R.string.button_transportationServices);
         setTitle(category.toUpperCase());
-
-        listView = findViewById(R.id.byIntiListView);
-        getJSON();
     }
 
-    private void getJSON() {
-        class GetJSON extends AsyncTask<Void, Void, Object> {
-
-            @Override
-            protected void onPreExecute() {
-                super.onPreExecute();
-            }
-
-            @Override
-            protected Object doInBackground(Void... voids) {
-                try {
-                    String link = "http://pkunite2.000webhostapp.com/getID31.php";
-
-                    URL url = new URL(link);
-                    URLConnection conn = url.openConnection();
-
-                    BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-
-                    StringBuilder sb = new StringBuilder();
-                    String line;
-
-                    // Read Server Response
-                    while ((line = reader.readLine()) != null) {
-                        sb.append(line);
-                        break;
-                    }
-
-                    return sb.toString();
-
-                } catch (Exception e) {
-                    Log.e("ByIntiActivityError", e.getLocalizedMessage());
-                    return new String("Exception: " + e.getMessage());
-                }
-            }
-
-            @Override
-            protected void onPostExecute(Object o) {
-                super.onPostExecute(o);
-                try {
-                    loadIntoListView((String)o);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-        GetJSON getJSON = new GetJSON();
-        getJSON.execute();
-    }
-
-    private void loadIntoListView(String line) throws JSONException {
-        JSONObject jsonObject = new JSONObject(line);
-        String[] byInti = new String[jsonObject.length()];
-
-        for (int i=0; jsonObject.has(String.valueOf(i+1)); i++){
-            byInti[i] = jsonObject.getString(String.valueOf(i+1));
-        }
-
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, byInti) {
-            @NonNull
-            @Override
-            public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-                View view = super.getView(position, convertView, parent);
-                TextView tv = view.findViewById(android.R.id.text1);
-                tv.setTextColor(getResources().getColor(R.color.light_blue_text));
-                tv.setTypeface(null, Typeface.BOLD);
-                return view;
-            }
-        };
-        listView.setAdapter(arrayAdapter);
+    public void intiShuttle(View view){
+        Intent intent = new Intent(this, IntiShuttleActivity.class);
+        startActivity(intent);
     }
 }

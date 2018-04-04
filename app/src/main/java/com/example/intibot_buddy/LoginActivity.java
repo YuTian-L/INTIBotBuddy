@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.Gravity;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -25,6 +26,8 @@ import java.io.OutputStreamWriter;
 import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLEncoder;
+
+import static android.content.Context.MODE_PRIVATE;
 
 /**
  * Created by TIAN☺ on 26/01/2018.
@@ -43,9 +46,9 @@ public class LoginActivity extends AsyncTask {
         super.onPreExecute();
 
         boolean connection = checkConnection();
-        SharedPreferences sharedPref = context.getSharedPreferences(context.getString(R.string.pass_connection), context.MODE_PRIVATE);
+        SharedPreferences sharedPref = context.getSharedPreferences(context.getString(R.string.pass_connection), MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
-        editor.putString(context.getString(R.string.pass_connection), String.valueOf(connection));
+        editor.putBoolean(context.getString(R.string.pass_connection), connection);
         editor.commit();
     }
 
@@ -87,7 +90,7 @@ public class LoginActivity extends AsyncTask {
             String line;
 
             // Read Server Response
-            while ((line = reader.readLine()) != null) {
+            while ((line = reader.readLine()) != null) { // FIXME
                 sb.append(line);
                 break;
             }
@@ -111,8 +114,17 @@ public class LoginActivity extends AsyncTask {
             context.startActivity(intent);
             ((Activity) context).finish();
         }
-
         else {
+            SharedPreferences sharedPref = context.getSharedPreferences(context.getString(R.string.save_rememberMe), MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPref.edit();
+            editor.putBoolean(context.getString(R.string.save_rememberMe), false);
+            editor.commit();
+
+            SharedPreferences sharedPref2 = context.getSharedPreferences(context.getString(R.string.save_usernamePassword), MODE_PRIVATE);
+            SharedPreferences.Editor editor2 = sharedPref2.edit();
+            editor2.clear();
+            editor2.commit();
+
             AlertDialog alertDialog = new AlertDialog.Builder(context).create();
             alertDialog.setTitle(title);
             alertDialog.setMessage(message);

@@ -1,17 +1,11 @@
 package com.example.intibot_buddy;
 
-import android.graphics.Typeface;
 import android.os.AsyncTask;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
+import android.widget.ProgressBar;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -20,10 +14,14 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class SportsActivity extends AppCompatActivity {
 
     ListView listView;
+    ArrayList<Info7> items;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +30,9 @@ public class SportsActivity extends AppCompatActivity {
 
         String category = getString(R.string.button_activities);
         setTitle(category.toUpperCase());
+
+        ProgressBar progressBar = findViewById(R.id.progressBarSports);
+        progressBar.setVisibility(ProgressBar.VISIBLE);
 
         listView = findViewById(R.id.sportsListView);
         getJSON();
@@ -77,6 +78,8 @@ public class SportsActivity extends AppCompatActivity {
                 super.onPostExecute(o);
                 try {
                     loadIntoListView((String)o);
+                    ProgressBar progressBar = findViewById(R.id.progressBarSports);
+                    progressBar.setVisibility(ProgressBar.INVISIBLE);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -87,24 +90,24 @@ public class SportsActivity extends AppCompatActivity {
     }
 
     private void loadIntoListView(String line) throws JSONException {
+        items = new ArrayList<>();
         JSONObject jsonObject = new JSONObject(line);
         String[] sports = new String[jsonObject.length()];
+        Map<String, String> details = new HashMap<>();
 
         for (int i=0; jsonObject.has(String.valueOf(i+1)); i++){
             sports[i] = jsonObject.getString(String.valueOf(i+1));
+            for (int j=1; jsonObject.has(String.valueOf(i+1)+"info"+String.valueOf(j)); j++) {
+                details.put(String.valueOf(i+1)+"info"+String.valueOf(j),jsonObject.getString(String.valueOf(i+1)+"info"+String.valueOf(j)));
+            }
         }
 
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, sports) {
-            @NonNull
-            @Override
-            public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-                View view = super.getView(position, convertView, parent);
-                TextView tv = view.findViewById(android.R.id.text1);
-                tv.setTextColor(getResources().getColor(R.color.light_blue_text));
-                tv.setTypeface(null, Typeface.BOLD);
-                return view;
-            }
-        };
-        listView.setAdapter(arrayAdapter);
+        for (int i=1; jsonObject.has(String.valueOf(i)); i++) {
+            Info7 item = new Info7(jsonObject.getString(String.valueOf(i)), details.get(String.valueOf(i)+"info"+String.valueOf(1)));
+            items.add(item);
+        }
+
+        ListViewAdapter7 adapter = new ListViewAdapter7(this, items);
+        listView.setAdapter(adapter);
     }
 }

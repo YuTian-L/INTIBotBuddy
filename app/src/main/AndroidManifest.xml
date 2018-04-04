@@ -7,7 +7,7 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_launcher_app_icon"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
@@ -85,7 +85,13 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Main2Activity" />
         </activity>
-        <activity android:name=".SettingsActivity" />
+        <activity
+            android:name=".SettingsActivity"
+            android:parentActivityName=".Main2Activity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Main2Activity" />
+        </activity>
         <activity
             android:name=".InjuredActivity"
             android:parentActivityName=".SafetyActivity">
@@ -100,167 +106,222 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".SafetyActivity" />
         </activity>
-        <activity android:name=".CounsellingActivity"
+        <activity
+            android:name=".CounsellingActivity"
             android:parentActivityName=".SafetyActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".SafetyActivity" />
         </activity>
-        <activity android:name=".GetInTouchActivity"
+        <activity
+            android:name=".GetInTouchActivity"
             android:parentActivityName=".AcademicActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".AcademicActivity" />
         </activity>
-        <activity android:name=".WebsitesActivity"
+        <activity
+            android:name=".WebsitesActivity"
             android:parentActivityName=".AcademicActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".AcademicActivity" />
         </activity>
-        <activity android:name=".SocialMediaActivity"
+        <activity
+            android:name=".SocialMediaActivity"
             android:parentActivityName=".AcademicActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".AcademicActivity" />
         </activity>
-        <activity android:name=".AcademicWebsitesResActivity"
+        <activity
+            android:name=".AcademicWebsitesResActivity"
             android:parentActivityName=".AcademicActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".AcademicActivity" />
         </activity>
-        <activity android:name=".IntimaFbActivity"
+        <activity
+            android:name=".IntimaFbActivity"
             android:parentActivityName=".AcademicActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".AcademicActivity" />
         </activity>
-        <activity android:name=".ByIntiActivity"
+        <activity
+            android:name=".ByIntiActivity"
             android:parentActivityName=".TransportationActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".TransportationActivity" />
         </activity>
-        <activity android:name=".NonIntiActivity"
+        <activity
+            android:name=".NonIntiActivity"
             android:parentActivityName=".TransportationActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".TransportationActivity" />
         </activity>
-        <activity android:name=".WhereToWaitForBusActivity"
+        <activity
+            android:name=".WhereToWaitForBusActivity"
             android:parentActivityName=".TransportationActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".TransportationActivity" />
         </activity>
-        <activity android:name=".FacilitiesGeneralActivity"
+        <activity
+            android:name=".FacilitiesGeneralActivity"
             android:parentActivityName=".FacilitiesActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".FacilitiesActivity" />
         </activity>
-        <activity android:name=".FacilitiesAcademicActivity"
+        <activity
+            android:name=".FacilitiesAcademicActivity"
             android:parentActivityName=".FacilitiesActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".FacilitiesActivity" />
         </activity>
-        <activity android:name=".FacilitiesHostelActivity"
+        <activity
+            android:name=".FacilitiesHostelActivity"
             android:parentActivityName=".FacilitiesActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".FacilitiesActivity" />
         </activity>
-        <activity android:name=".SportsRecreationalActivity"
+        <activity
+            android:name=".SportsRecreationalActivity"
             android:parentActivityName=".FacilitiesActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".FacilitiesActivity" />
         </activity>
-        <activity android:name=".ContactsGeneralActivity"
+        <activity
+            android:name=".ContactsGeneralActivity"
             android:parentActivityName=".ContactsActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ContactsActivity" />
         </activity>
-        <activity android:name=".ContactsAcademicActivity"
+        <activity
+            android:name=".ContactsAcademicActivity"
             android:parentActivityName=".ContactsActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ContactsActivity" />
         </activity>
-        <activity android:name=".ContactsHostelActivity"
+        <activity
+            android:name=".ContactsHostelActivity"
             android:parentActivityName=".ContactsActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ContactsActivity" />
         </activity>
-        <activity android:name=".ContactsOthersActivity"
+        <activity
+            android:name=".ContactsOthersActivity"
             android:parentActivityName=".ContactsActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ContactsActivity" />
         </activity>
-        <activity android:name=".SportsActivity"
+        <activity
+            android:name=".SportsActivity"
             android:parentActivityName=".ActivitiesActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ActivitiesActivity" />
         </activity>
-        <activity android:name=".ClubsSocietiesActivity"
+        <activity
+            android:name=".ClubsSocietiesActivity"
             android:parentActivityName=".ActivitiesActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ActivitiesActivity" />
         </activity>
-        <activity android:name=".EventsActivity"
+        <activity
+            android:name=".EventsActivity"
             android:parentActivityName=".ActivitiesActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ActivitiesActivity" />
         </activity>
-        <activity android:name=".ItHelpdeskActivity"
+        <activity
+            android:name=".ItHelpdeskActivity"
             android:parentActivityName=".HelpdesksActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".HelpdesksActivity" />
         </activity>
-        <activity android:name=".AfmHelpdeskActivity"
+        <activity
+            android:name=".AfmHelpdeskActivity"
             android:parentActivityName=".HelpdesksActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".HelpdesksActivity" />
         </activity>
-        <activity android:name=".MakeEnquiryActivity"
+        <activity
+            android:name=".MakeEnquiryActivity"
             android:parentActivityName=".HelpdesksActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".HelpdesksActivity" />
         </activity>
-        <activity android:name=".OnlineSuggestionActivity"
+        <activity
+            android:name=".OnlineSuggestionActivity"
             android:parentActivityName=".HelpdesksActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".HelpdesksActivity" />
         </activity>
-        <activity android:name=".StudentWifiActivity"
+        <activity
+            android:name=".StudentWifiActivity"
             android:parentActivityName=".WifiActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".WifiActivity" />
         </activity>
-        <activity android:name=".HostelWifiActivity"
+        <activity
+            android:name=".HostelWifiActivity"
             android:parentActivityName=".WifiActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".WifiActivity" />
         </activity>
-        <activity android:name=".NearbyMallsActivity"
+        <activity
+            android:name=".NearbyMallsActivity"
             android:parentActivityName=".ExtraInfoActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".WifiActivity" />
+        </activity>
+        <activity
+            android:name=".IntiShuttleActivity"
+            android:parentActivityName=".ByIntiActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ByIntiActivity" />
+        </activity>
+        <activity
+            android:name=".LocalShuttleActivity"
+            android:parentActivityName=".NonIntiActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".NonIntiActivity" />
+        </activity>
+        <activity
+            android:name=".TaxiServiceActivity"
+            android:parentActivityName=".NonIntiActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".NonIntiActivity" />
+        </activity>
+        <activity
+            android:name=".OtherOptionsActivity"
+            android:parentActivityName=".NonIntiActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".NonIntiActivity" />
         </activity>
     </application>
 

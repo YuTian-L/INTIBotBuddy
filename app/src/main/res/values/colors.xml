@@ -9,4 +9,5 @@
     <color name="light_blue_hint">#63c5ca</color>
     <color name="cyan_button">#00ffdd</color>
     <color name="light_blue_input">#49d0d7</color>
+    <color name="darker_light_blue_text">#00bfff</color>
 </resources>
