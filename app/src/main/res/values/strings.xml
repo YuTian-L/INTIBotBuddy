@@ -3,7 +3,7 @@
     <string name="input_studentID">Student ID</string>
     <string name="button_login">Enter</string>
     <string name="input_password">Password</string>
-    <string name="text_login">LOGIN</string>
+    <string name="text_login">Login</string>
     <string name="text_firstTimeLogin">First Time Login</string>
     <string name="tooltipText_firstTimeLogin">password: the 8 digits from your student ID</string>
     <string name="text_mainMenu">MAIN MENU</string>
